@@ -33,6 +33,7 @@ public class GSheetUtil
 
       List<String> scopes = Arrays.asList(SheetsScopes.SPREADSHEETS);
 
+      //creating the flow object
       GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
               GoogleNetHttpTransport.newTrustedTransport(), JacksonFactory.getDefaultInstance(),
               clientSecrets, scopes)
@@ -40,6 +41,7 @@ public class GSheetUtil
               .setAccessType("offline")
               .build();
 
+      //Creating the object
       Credential credential = new AuthorizationCodeInstalledApp(
               flow, new LocalServerReceiver())
               .authorize("user");
